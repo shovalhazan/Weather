@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/page_card_CardView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/page_LBL_text"
+                android:padding="15dp"
+                android:lineSpacingMultiplier="1.2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="CARD" />
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+</FrameLayout>

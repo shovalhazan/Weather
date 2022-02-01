@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/colorPrimaryDark"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".View.Fragments.CitiesListFragment">
+    <TextView
+        android:id="@+id/fragment_recycler_list_LBL_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:visibility="invisible"
+        app:layout_constraintRight_toRightOf="@+id/fragment_recycler_Pager"
+        app:layout_constraintLeft_toLeftOf="@+id/fragment_recycler_Pager"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_recycler_Pager"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragment_recycler_Pager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/fragment_recycler_list_LBL_title"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_recycler_LST_searchList"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_recycler_BTN_forcase"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_recycler_Pager" />
+
+
+    <ProgressBar
+        android:id="@+id/fragment_recycler_list_ProgressBar"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+        android:layout_width="173dp"
+        android:layout_height="146dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/fragment_recycler_LST_searchList"
+        app:layout_constraintLeft_toLeftOf="@+id/fragment_recycler_LST_searchList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_recycler_Pager" />/>
+
+    <TextView
+        android:id="@+id/fragment_recycler_list_LBL_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="There is no data for this location!"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:visibility="invisible"
+        app:layout_constraintRight_toRightOf="@+id/fragment_recycler_LST_searchList"
+        app:layout_constraintLeft_toLeftOf="@+id/fragment_recycler_LST_searchList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_recycler_Pager"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_recycler_BTN_forcase"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fragment_recycler_BTN_forcase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORCASE"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
