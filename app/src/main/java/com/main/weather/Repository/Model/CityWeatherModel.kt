@@ -11,7 +11,7 @@ import java.util.*
 data class CityWeatherModel(
     @Expose
     @SerializedName("dt")
-    var date: String?,
+    var timestamp: String?,
     @SerializedName("main")
     @Expose
     var main_details: MainModel?,
@@ -38,7 +38,7 @@ data class CityWeatherModel(
         parcel.readString()
     )
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(date)
+        parcel.writeString(timestamp)
         parcel.writeParcelable(main_details, flags)
         parcel.writeList(weather)
         parcel.writeParcelable(wind, flags)
@@ -61,17 +61,20 @@ data class CityWeatherModel(
     }
     fun getHour(): Int {
         lateinit var myDate:Date
-        Log.d("pttt", "getHour: "+dt_txt)
-        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        if(dt_txt!=null){
-            try{
-                myDate = format.parse(dt_txt)
-            }catch(e:Exception){
-                Log.d("pttt", "getHour: "+e)
+        Log.d("pttt", "getHour: " + dt_txt)
+        try{
+            val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            if(dt_txt!=null){
+                try{
+                    myDate = format.parse(dt_txt)
+                }catch (e: Exception){
+                    Log.d("pttt", "getHour: " + e)
+                }
             }
+        }catch (e:java.lang.Exception){
+            Log.d("pttt", "getHour: "+e)
         }
 
-        Log.d("pttt", "getHour: " + myDate.hours)
         return myDate.hours
     }
 }

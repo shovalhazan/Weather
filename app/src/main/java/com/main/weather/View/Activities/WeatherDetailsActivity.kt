@@ -53,8 +53,8 @@ class WeatherDetailsActivity : AppCompatActivity() {
         viewModel._weatherListLiveData.observe(this, Observer<WeaterListModel> {
             if(it!=null &&it.requestCode=="200"){
                 setAdapter(it.weatherList)
-                LBL_sunsetTime.text =it.city.sunset
-                LBL_sunriseTime.text =it.city.sunrise
+                LBL_sunsetTime.text =it.convertTimeToDate(it.city.sunset)
+                LBL_sunriseTime.text =it.convertTimeToDate(it.city.sunrise)
                 prograssBar.visibility= View.GONE
             }
         })

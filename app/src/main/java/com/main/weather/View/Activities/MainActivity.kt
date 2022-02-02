@@ -23,18 +23,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        addCitiesWeatherFragment()
+        checkForConnection()
         permission= LocationPermission(this)
         if(!permission.checkForPermission(Manifest.permission.ACCESS_FINE_LOCATION)||
             !permission.checkForPermission( Manifest.permission.ACCESS_COARSE_LOCATION)){
                 permission.requestForLocation()
-        }
 
+        }else{
+            addCitiesWeatherFragment()
+        }
     }
 
-    override fun onStart() {
-        super.onStart()
+    private fun checkForConnection(){
         val flag= checkForInternet()
         if(!flag){
             val builder = AlertDialog.Builder(this)
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         weatherFragment= CitiesListFragment()
         val manager = supportFragmentManager
         var transaction = manager.beginTransaction()
-        transaction.add(R.id.activityMain_fragment_container_view,weatherFragment).commit()
+        transaction.replace(R.id.activityMain_fragment_container_view,weatherFragment).commit()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,permissions: Array<out String>, grantResults: IntArray ) {
@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         when(requestCode){
             PERMISSIONS_LOCATION_REQUEST_CODE->{
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        addCitiesWeatherFragment()
                         return;
                 }else {
                     val locationFlag=permission.requestPermissionWithRationaleCheck(Manifest.permission.ACCESS_FINE_LOCATION,PERMISSIONS_LOCATION_REQUEST_CODE);
@@ -106,6 +107,8 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if((!permission.checkForFineLocationPermission()||!permission.checkForCoarseLocationPermission()))
             permission.openPermissionSettingDialog();
+        else
+            addCitiesWeatherFragment()
     }
 
 
