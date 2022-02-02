@@ -1,6 +1,6 @@
 # Weather_App<br/>
 
-An Android application enabling know about.<br/>
+An Android application enabling know about your location weather and forcast.<br/>
 consuming [OpenWeather REST API] (https://openweathermap.org/api) to get weather data .<br/>
 The app was built using MVVM architectural pattern .
 
