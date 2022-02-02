@@ -15,7 +15,9 @@ Min API level == 23<br/>
 In the main screen you can see your current location data and three other places in the world.
 Clicking on the forecast button will open another window that will show data about the city selected from the list<br/> 
 
-https://user-images.githubusercontent.com/49520039/152077261-0374ad13-e653-45b2-adc4-f8d36ce1aaf7.mp4
+
+https://user-images.githubusercontent.com/49520039/152078417-91ae0b1c-4919-4771-80aa-51e92e0fba89.mp4
+
 ## Libraries<br/>
 [Retrofit](https://square.github.io/retrofit/)<br/> Type-safe HTTP client for Android and Java and Kotlin<br/> 
 [Material Design](https://material.io/develop/android)<br/>  Build beautiful, usable products using Material Components for Android<br/> 
